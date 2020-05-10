@@ -28,6 +28,7 @@
         <button id="start" v-on:click="start" class="btn-primary rounded">Start</button>
         <h1 id="chord" v-model="currentChord" class="display-1">{{ currentChord }}</h1>
         <h3 v-model="secondsLeft">{{ secondsLeft }}s</h3>
+        <h4 v-if="timesUp">Well done!</h4>
     </div>
 
     <script src="js/main.js"></script>
