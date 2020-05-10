@@ -14,7 +14,6 @@ let view = new Vue({
         this.currentChord = this.selectedChords[
           Math.floor(Math.random() * this.selectedChords.length)
         ];
-        console.log(this.currentChord);
         if (--changesRemaining <= 0) {
           clearInterval(intervalId);
         }
