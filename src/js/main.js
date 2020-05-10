@@ -6,15 +6,15 @@ let view = new Vue({
     allChords: ["E", "A", "D"],
     selectedChords: ["E", "A", "D"],
     currentChord: "",
+    secondsLeft: 15,
   },
   methods: {
     start: function (event) {
-      let changesRemaining = 60;
       let intervalId = setInterval(() => {
         this.currentChord = this.selectedChords[
           Math.floor(Math.random() * this.selectedChords.length)
         ];
-        if (--changesRemaining <= 0) {
+        if (--this.secondsLeft <= 0) {
           clearInterval(intervalId);
         }
       }, MS_PER_CHORD);
