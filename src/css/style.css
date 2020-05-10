@@ -6,3 +6,13 @@ body {
     background-repeat: repeat-x;
     color: #EEEFF1;
 }
+
+i {
+    font-size: 22px;
+}
+
+
+.navbar {
+    background-color: #14181C;
+    color: #BDD4E7;
+}
