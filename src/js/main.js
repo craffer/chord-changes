@@ -3,17 +3,22 @@ const MS_PER_CHORD = 1000; // 1000 milliseconds for each chord
 let view = new Vue({
   el: "#app",
   data: {
-    allChords: ["E", "A", "D"],
-    selectedChords: ["E", "A", "D"],
+    chords: [
+      { name: "E", checked: false },
+      { name: "A", checked: false },
+      { name: "D", checked: false },
+    ],
     currentChord: "",
-    secondsLeft: 15,
+    secondsLeft: 60,
   },
   methods: {
-    start: function (event) {
+    start: function () {
       let intervalId = setInterval(() => {
-        this.currentChord = this.selectedChords[
-          Math.floor(Math.random() * this.selectedChords.length)
-        ];
+        let selectedChords = this.chords.filter((chord) => chord.checked);
+        this.currentChord =
+          selectedChords[
+            Math.floor(Math.random() * selectedChords.length)
+          ].name;
         if (--this.secondsLeft <= 0) {
           clearInterval(intervalId);
         }
