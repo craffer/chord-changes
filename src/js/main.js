@@ -16,17 +16,20 @@ let view = new Vue({
     start: function () {
       this.timesUp = false;
       this.secondsLeft = 60;
-      let intervalId = setInterval(() => {
-        let selectedChords = this.chords.filter((chord) => chord.checked);
-        this.currentChord =
-          selectedChords[
-            Math.floor(Math.random() * selectedChords.length)
-          ].name;
-        if (--this.secondsLeft <= 0) {
-          clearInterval(intervalId);
+
+      let selectedChords = this.chords.filter((chord) => chord.checked);
+      if (selectedChords.length > 0) {
+        let intervalId = setInterval(() => {
+          this.currentChord =
+            selectedChords[
+              Math.floor(Math.random() * selectedChords.length)
+            ].name;
+          if (--this.secondsLeft <= 0) {
+            clearInterval(intervalId);
             this.timesUp = true;
-        }
-      }, MS_PER_CHORD);
+          }
+        }, MS_PER_CHORD);
+      }
     },
   },
 });
