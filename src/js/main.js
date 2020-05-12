@@ -1,4 +1,4 @@
-const MS_PER_CHORD = 1000; // 1000 milliseconds for each chord
+const MS_PER_MINUTE = 60000;
 
 let view = new Vue({
   el: "#app",
@@ -8,6 +8,7 @@ let view = new Vue({
       { name: "A", checked: false },
       { name: "D", checked: false },
     ],
+    goal: 30,
     currentChord: "",
     secondsLeft: 60,
     timesUp: false,
@@ -28,7 +29,7 @@ let view = new Vue({
             clearInterval(intervalId);
             this.timesUp = true;
           }
-        }, MS_PER_CHORD);
+        }, MS_PER_MINUTE / this.goal);
       }
     },
   },
